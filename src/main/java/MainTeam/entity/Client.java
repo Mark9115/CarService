@@ -1,34 +1,41 @@
 package MainTeam.entity;
 
+import MainTeam.entity.enumeration.ConsultationStateMachine;
+import MainTeam.entity.enumeration.PartStateMachine;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Entity
-@Table
+@Table(name = "client")
 public class Client {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "chat_id")
+    private Long chatId;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "consultation_state")
+    private ConsultationStateMachine consultationStateMachine;
 
-    @Column(name = "model")
-    private String model;
+    @Column(name = "part_state")
+    private PartStateMachine partStateMachine;
 
-    @Column(name = "description")
-    private String description;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "client_problem_id")
+    private List<ClientProblem> clientProblems;
 
-    @Column(name = "address")
-    private String address;
 }

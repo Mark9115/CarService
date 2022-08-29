@@ -1,6 +1,6 @@
 package MainTeam.json;
 
-import MainTeam.entity.Message;
+import MainTeam.dto.Message;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;

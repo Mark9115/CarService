@@ -1,7 +1,7 @@
 package MainTeam.controller;
 
-import MainTeam.entity.Message;
-import MainTeam.service.TelegramAPIService;
+import MainTeam.dto.Message;
+import MainTeam.service.RedirectionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/experimental")
 @RequiredArgsConstructor
-public class ExperimentalTelegramAPICController {
+public class TelegramApiController {
 
-    private final TelegramAPIService telegramAPIService;
+    private final RedirectionService redirectionService;
 
     @PostMapping
     public void takeBody(@RequestBody Message message) {
-        telegramAPIService.takeMessageFromClient(message);
+        redirectionService.redirection(message);
     }
 }

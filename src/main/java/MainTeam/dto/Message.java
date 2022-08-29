@@ -1,4 +1,4 @@
-package MainTeam.entity;
+package MainTeam.dto;
 
 import MainTeam.json.MessageDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

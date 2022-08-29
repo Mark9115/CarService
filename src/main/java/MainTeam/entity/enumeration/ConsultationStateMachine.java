@@ -1,4 +1,4 @@
-package MainTeam.entity;
+package MainTeam.entity.enumeration;
 
 public enum ConsultationStateMachine {
     INITIATION,
